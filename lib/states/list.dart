@@ -44,6 +44,7 @@ class _ListPageState extends State<ListPage> {
         });
         loading = false;
       } else if (res.statusCode == 401) {
+        loading = false;
       } else {
         throw Exception('Failed to load ItemInfo');
       }
@@ -62,6 +63,7 @@ class _ListPageState extends State<ListPage> {
         getListItemInfo();
       }
     } catch (e) {
+      loading = false;
       print(e);
     }
   }

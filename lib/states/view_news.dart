@@ -51,11 +51,14 @@ class _ViewNewsState extends State<ViewNews> {
         });
         loading = false;
       } else if (res.statusCode == 401) {
+        loading = false;
         throw Exception('Failed to load ItemInfo');
       } else {
+        loading = false;
         throw Exception('Failed to load ItemInfo');
       }
     } catch (error) {
+      loading = false;
       print(error);
       throw Exception('Failed to load ItemInfo');
     }
