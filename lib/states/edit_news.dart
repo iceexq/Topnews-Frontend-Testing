@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/services/services.dart';
+import 'package:flutter_application_1/states/list.dart';
 import 'package:flutter_application_1/widgets/custom_clipper.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
@@ -80,7 +81,10 @@ class _EditNewsState extends State<EditNews> {
           descriptionController.text, _selectedCategories);
       if (res.statusCode == 200) {
         loading = false;
-        Navigator.pop(context);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => const ListPage()),
+            (route) => false);
       } else {
         loading = false;
         print("EDIT_NEWS_PAGE :: add news errors");
